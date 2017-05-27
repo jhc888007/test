@@ -440,6 +440,58 @@ void testG() {
 
 }
 
+class H_father {
+public:
+    u_ptr v1;
+    virtual void f1() { cout << "H_father::f1()" << endl; }
+};
+
+class H_child: public H_father {
+public:
+    u_ptr v2;
+    void f1() { cout << "H_child::f1()" << endl; }
+    virtual void f2() { cout << "H_child::f2()" << endl; }
+};
+
+class H_grand: public H_child {
+public:
+    u_ptr v3;
+    void f1() { cout << "H_grand::f1()" << endl; }
+    void f2() { cout << "H_grand::f2()" << endl; }
+    virtual void f3() { cout << "H_child::f3()" << endl; }
+};
+
+void testH(void) {
+    cout << "sizeof(H_father): " <<  sizeof(H_father) << " sizeof(H_child): " << sizeof(H_child) << " sizeof(H_grand): "
+        << sizeof(H_grand) << endl;
+}
+
+class I_father {
+public:
+    u_ptr v1;
+    virtual void f1() { cout << "I_father::f1()" << endl; }
+};
+
+class I_child: virtual public I_father {
+public:
+    u_ptr v2;
+    void f1() { cout << "I_child::f1()" << endl; }
+    virtual void f2() { cout << "I_child::f2()" << endl; }
+};
+
+class I_grand: virtual public I_child {
+public:
+    u_ptr v3;
+    void f1() { cout << "I_grand::f1()" << endl; }
+    void f2() { cout << "I_grand::f2()" << endl; }
+    virtual void f3() { cout << "I_child::f3()" << endl; }
+};
+
+void testI(void) {
+    cout << "sizeof(I_father): " <<  sizeof(I_father) << " sizeof(I_child): " << sizeof(I_child) << " sizeof(I_grand): "
+        << sizeof(I_grand) << endl;
+}
+
 int main() {
     testA();
     cout << endl;
@@ -454,5 +506,10 @@ int main() {
     testF();
     cout << endl;
     testG();
+    cout << endl;
+    testH();
+    cout << endl;
+    testI();
+    cout << endl;
     return 0;
 }
