@@ -76,8 +76,24 @@ int main() {
     if (it != v4.end())
         v4.erase(it);
     DUMP(v4); FOR2(v4);
+    auto rit = find(v4.rbegin(), v4.rend(), Struct(7));
+    if (rit != v4.rend())
+        v4.erase(--rit.base());
+    DUMP(v4); FOR2(v4);
     v4.clear();
     DUMP(v4); FOR2(v4);
+
+    vector<vector<Struct> > v5;
+    vector<Struct> v6 = {Struct(1), Struct(2)};
+    DUMP(v6);
+    vector<Struct> v7 = {Struct(3), Struct(4)};
+    DUMP(v7);
+    v5.push_back(v6);
+    DUMP(v5);
+    v5.push_back(v7);
+    DUMP(v5);
+    v5.erase(v5.begin());
+    DUMP(v5);
 
     return 0;
 }
