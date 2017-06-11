@@ -4,7 +4,7 @@
 
 void MyOom() {
     std::cout << "Oom" << std::endl;
-    exit(0);
+    exit(1);
 }
 
 int main() {
