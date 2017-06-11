@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <pthread.h>
 
+//汇编实现
 class SpinLock {
 public:
     int lock;
