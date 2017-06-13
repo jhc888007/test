@@ -104,7 +104,7 @@ public:
 };
 */
 
-//类型模板全部继承
+//类型模板非模板继承
 class VectorContainer4: public Container<Vector,int> {
 public:
 	void push_back(int &i) {
