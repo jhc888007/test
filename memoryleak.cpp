@@ -14,6 +14,7 @@ private:
 int main(void)
 {
 	A *p;
+	p->Func1(); //Will not core dump
 	int i = 0;
 	//cin >> i; //If not committed, will core dump. If committed, maybe not core dump
 	if (i > 10)
